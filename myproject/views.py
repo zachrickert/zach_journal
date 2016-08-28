@@ -10,9 +10,13 @@ import os
 
 HERE = os.path.dirname(__file__)
 
-def home_page(request):
+# def home_page(request):
+#     imported_text = open(os.path.join(HERE, 'templates/index.html')).read()
+#     return Response(imported_text)
+
+def list_view(request):
     imported_text = open(os.path.join(HERE, 'templates/index.html')).read()
     return Response(imported_text)
 
 def includeme(config):
-    config.add_view(home_page, route_name='home')
+    config.add_view(list_view, route_name='home')
