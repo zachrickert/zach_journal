@@ -11,7 +11,7 @@ import os
 HERE = os.path.dirname(__file__)
 
 def home_page(request):
-    imported_text = open(os.path.join(HERE, 'sample.html')).read()
+    imported_text = open(os.path.join(HERE, 'templates/index.html')).read()
     return Response(imported_text)
 
 def includeme(config):
