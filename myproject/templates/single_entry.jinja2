@@ -2,11 +2,12 @@
 {% block body %}
 
     <body>
-        <h1>{{ id }}{{ title }}</h1>
+        <h1>#{{ id }} - {{ title }}</h1>
         {{ creation_date}}
         <p>
         {{ body }}
         </p>
     </body>
+    <a href="/journal/{{ id }}/edit-entry">Edit Entry</a>
 
 {% endblock %}

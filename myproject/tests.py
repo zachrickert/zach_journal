@@ -8,10 +8,28 @@ ITEMS_TO_CHECK = [
     'body'
 ]
 
+
+def test_list_view():
+    from .views import list_view
+    request = testing.DummyRequest()
+    info = list_view(request)
+    assert 'title' in info
+
+
 @pytest.mark.parametrize('value_to_return', ITEMS_TO_CHECK)
 def test_detail_view(value_to_return):
     from .views import detail_view
     request = testing.DummyRequest()
+    request.matchdict = {'id': '11'}
+    info = detail_view(request)
+    assert value_to_return in info
+
+
+@pytest.mark.parametrize('value_to_return', ITEMS_TO_CHECK)
+def test_editl_view(value_to_return):
+    from .views import detail_view
+    request = testing.DummyRequest()
+    request.matchdict = {'id': '11'}
     info = detail_view(request)
     assert value_to_return in info
 
